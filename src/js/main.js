@@ -1,16 +1,13 @@
-var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
-//var buttonText = document.querySelector('.js-copybtn');
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput");
 
-copyTextareaBtn.addEventListener('click', function(event) {
-  var copyTextarea = document.querySelector('.js-copytextarea');
-  copyTextarea.focus();
-  copyTextarea.select();
+  /* Select the text field */
+  copyText.select();
 
-  try {
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'Промокод скопирован' : 'Промокод не скопирован. Обратитетсь в службу поддержки';
-    alert(msg);
-  } catch (err) {
-    alert('Что-то пошло не так. Скопируйте текст вручную');
-  }
-});
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Промокод скопирован: " + copyText.value);
+}
